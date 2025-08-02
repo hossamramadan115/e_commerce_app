@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/screens/sign_up_screen.dart';
+import 'package:e_commerce_app/screens/splash_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +11,7 @@ class ECommerceApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SignUpScreen(),
+      home: SplashView(),
     );
   }
 }

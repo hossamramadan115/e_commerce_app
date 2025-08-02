@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/widget/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -7,9 +8,9 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: const Column(
+        body: Column(
           children: [
-            Center(
+            const Center(
               child: Text(
                 'SnapCart',
                 style: TextStyle(
@@ -18,7 +19,10 @@ class SignUpScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
+            CustomTexFormtField(
+              label: Text('Name'),
+            ),
           ],
         ),
       ),
