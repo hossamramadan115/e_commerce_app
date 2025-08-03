@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/widget/splash_view_body.dart';
+import 'package:e_commerce_app/screens/widget/splash_view_body.dart';
 import 'package:flutter/material.dart';
 
 

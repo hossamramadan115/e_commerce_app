@@ -1,4 +1,6 @@
-import 'package:e_commerce_app/widget/custom_text_form_field.dart';
+import 'package:e_commerce_app/constants.dart';
+import 'package:e_commerce_app/screens/widget/custom_text_button.dart';
+import 'package:e_commerce_app/screens/widget/custom_text_form_sign_up_section.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -8,22 +10,44 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          children: [
-            const Center(
-              child: Text(
-                'SnapCart',
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w100,
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: 50),
+                Text(
+                  'SnapCart',
+                  style: TextStyle(
+                    color: kSplashColor,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
+                SizedBox(height: 100),
+                CustomTextFormSignUpSection(),
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Do you have account? ',
+                      style: TextStyle(
+                        color: kSplashColor,
+                        fontSize: 16,
+                      ),
+                    ),
+                    CustomTextButton(
+                      onPressed: () {},
+                      text: 'Login',
+                    ),
+                  ],
+                ),
+                SizedBox(height: 100),
+              ],
             ),
-            const SizedBox(height: 50),
-            CustomTexFormtField(
-              label: Text('Name'),
-            ),
-          ],
+          ),
         ),
       ),
     );

@@ -2,7 +2,9 @@ import 'package:e_commerce_app/screens/splash_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(ECommerceApp());
+  runApp(
+    ECommerceApp(),
+  );
 }
 
 class ECommerceApp extends StatelessWidget {
@@ -12,6 +14,9 @@ class ECommerceApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: SplashView(),
+      theme: ThemeData(
+        fontFamily: 'Poppins',
+      ),
     );
   }
 }

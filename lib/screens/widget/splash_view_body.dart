@@ -20,7 +20,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     super.initState();
     makeAnimation();
-    navigateToNextView(); 
+    navigateToNextView();
   }
 
   @override
@@ -32,7 +32,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff052531),
+      backgroundColor: kSplashColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -87,9 +87,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
     });
   }
 }
-
-
-
 
 // import 'package:e_commerce_app/constants.dart';
 // import 'package:e_commerce_app/screens/sign_up_screen.dart';
