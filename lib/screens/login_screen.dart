@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/constants.dart';
 import 'package:e_commerce_app/screens/widget/custom_text_button.dart';
 import 'package:e_commerce_app/screens/widget/custom_text_form_login_section.dart';
+import 'package:e_commerce_app/utils/app_styless.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -19,11 +20,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 50),
                 Text(
                   'SnapCart',
-                  style: TextStyle(
-                    color: kSplashColor,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style:AppStyless.styleBold24
                 ),
                 SizedBox(height: 100),
                 CustomTextFormLoginSection(),
