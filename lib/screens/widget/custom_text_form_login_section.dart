@@ -2,8 +2,8 @@ import 'package:e_commerce_app/screens/widget/custom_button.dart';
 import 'package:e_commerce_app/screens/widget/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
-class CustomTextFormSignUpSection extends StatelessWidget {
-  CustomTextFormSignUpSection({super.key});
+class CustomTextFormLoginSection extends StatelessWidget {
+  CustomTextFormLoginSection({super.key});
 
   final formKey = GlobalKey<FormState>();
 
@@ -13,23 +13,12 @@ class CustomTextFormSignUpSection extends StatelessWidget {
       key: formKey,
       child: Column(
         children: [
-          CustomTextFormField(
-            label: Text('Name'),
-            validator: (data) {
-              if (data == null || data.isEmpty) {
-                return 'field is required';
-              }
-              return null;
-            },
-          ),
           SizedBox(height: 16),
           CustomTextFormField(
             label: Text('Email'),
             validator: (data) {
               if (data == null || data.isEmpty) {
                 return 'field is required';
-              } else if (!data.contains('@') || data.length < 7) {
-                return 'please enter a vaild email';
               }
               return null;
             },
@@ -40,8 +29,6 @@ class CustomTextFormSignUpSection extends StatelessWidget {
             validator: (data) {
               if (data == null || data.isEmpty) {
                 return 'field is required';
-              } else if (data.length < 7) {
-                return 'must be at least 7 characters';
               }
               return null;
             },
@@ -49,7 +36,7 @@ class CustomTextFormSignUpSection extends StatelessWidget {
           ),
           SizedBox(height: 20),
           CustomButton(
-            text: 'Sign Up',
+            text: 'Login',
             onTap: () {
               formKey.currentState!.save();
               if (formKey.currentState!.validate()) {}
