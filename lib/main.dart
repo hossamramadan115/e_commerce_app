@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/constants.dart';
 import 'package:e_commerce_app/firebase_options.dart';
 import 'package:e_commerce_app/screens/splash_view.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -8,9 +9,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(
-    ECommerceApp(),
-  );
+
+  runApp(const ECommerceApp());
 }
 
 class ECommerceApp extends StatelessWidget {
@@ -19,8 +19,10 @@ class ECommerceApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: SplashView(),
       theme: ThemeData(
+        scaffoldBackgroundColor: kPrimaryColor,
         fontFamily: 'Poppins',
       ),
     );

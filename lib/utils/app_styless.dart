@@ -8,6 +8,11 @@ abstract class AppStyless {
     // fontWeight: FontWeight.bold,
     fontFamily: 'Poppins',
   );
+
+  static TextStyle price = TextStyle(
+    fontWeight: FontWeight.w500,
+    color: const Color(0xFF388E3C),
+  );
 }
 
 

@@ -8,20 +8,24 @@ class OurProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
 
-    return GridView.builder(
-      physics: NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      padding: EdgeInsets.only(top: screenHeight * 0.07), // 2% من ارتفاع الشاشة
-      itemCount: 10,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 1.4,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 70,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 6),
+      child: GridView.builder(
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        padding:
+            EdgeInsets.only(top: screenHeight * 0.07), // 2% من ارتفاع الشاشة
+        itemCount: 10,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 1.4,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 70,
+        ),
+        itemBuilder: (context, index) {
+          return const CustomCard();
+        },
       ),
-      itemBuilder: (context, index) {
-        return const CustomCard();
-      },
     );
   }
 }
