@@ -44,6 +44,7 @@ class ForgetPassword extends StatelessWidget {
                   SizedBox(height: 70),
                   CustomButton(
                     text: 'Reset password',
+                     backgroundColor: kSplashColor,
                     onTap: () {
                       formKey.currentState!.save();
                       if (formKey.currentState!.validate()) {}

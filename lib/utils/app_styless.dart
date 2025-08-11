@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/constants.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 abstract class AppStyless {
   static TextStyle styleBold24 = TextStyle(
@@ -12,6 +13,11 @@ abstract class AppStyless {
   static TextStyle price = TextStyle(
     fontWeight: FontWeight.w500,
     color: const Color(0xFF388E3C),
+  );
+
+  static TextStyle productName = TextStyle(
+    color: Colors.grey,
+    fontFamily: 'Playfair Display',
   );
 }
 

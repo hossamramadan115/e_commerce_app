@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/constants.dart';
 import 'package:e_commerce_app/screens/widget/custom_button.dart';
 import 'package:e_commerce_app/screens/widget/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
@@ -50,10 +51,11 @@ class CustomTextFormSignUpSection extends StatelessWidget {
           SizedBox(height: 20),
           CustomButton(
             text: 'Sign Up',
+             backgroundColor: kSplashColor,
             onTap: () {
               formKey.currentState!.save();
               if (formKey.currentState!.validate()) {}
-            },
+            }, 
           ),
         ],
       ),

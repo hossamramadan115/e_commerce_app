@@ -13,7 +13,7 @@ class CustomCard extends StatelessWidget {
     final paddingVertical = screenWidth * 0.04;
     final imageSize = screenWidth * 0.25;
     final imageTopOffset = -imageSize * 0.5;
-    final textFontSize = screenWidth * 0.039;
+    final textFontSize = screenWidth * 0.042;
     final priceFontSize = screenWidth * 0.039;
 
     return AspectRatio(
@@ -51,8 +51,7 @@ class CustomCard extends StatelessWidget {
                     children: [
                       Text(
                         'iphone',
-                        style: TextStyle(
-                          color: Colors.grey,
+                        style: AppStyless.productName.copyWith(
                           fontSize: textFontSize,
                         ),
                       ),

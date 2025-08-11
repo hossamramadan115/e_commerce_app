@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/constants.dart';
+import 'package:e_commerce_app/screens/cart_screen.dart';
 import 'package:e_commerce_app/screens/home_screen.dart';
 import 'package:e_commerce_app/screens/search_screen.dart';
 import 'package:flutter/material.dart';
@@ -16,9 +17,7 @@ class _BottomBarState extends State<BottomBar> {
   final List<Widget> pageList = [
     HomeScreen(),
     SearchScreen(),
-    Scaffold(
-      body: Center(child: Text('Cart Page', style: TextStyle(fontSize: 22))),
-    ),
+    CartScreen(),
     Scaffold(
       body: Center(child: Text('Profile Page', style: TextStyle(fontSize: 22))),
     ),

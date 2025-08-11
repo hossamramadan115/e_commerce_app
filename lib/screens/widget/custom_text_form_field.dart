@@ -27,7 +27,7 @@ class CustomTextFormField extends StatelessWidget {
       onChanged: onChanged,
       style: const TextStyle(color: Colors.black),
       decoration: InputDecoration(
-        prefixIcon: Icon(icon),
+        prefixIcon: icon != null ? Icon(icon) : null,
         label: label,
         hintText: hintText,
         floatingLabelBehavior: FloatingLabelBehavior.auto,
