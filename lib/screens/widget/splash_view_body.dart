@@ -35,23 +35,35 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kSplashColor,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: SizedBox(
-              height: 280,
-              child: FadeTransition(
-                opacity: fadeAnimation,
-                child: SlideTransition(
-                  position: slideAnimation,
-                  child: Image.asset(Assets.kLogo),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color.fromARGB(255, 125, 153, 160), // أفتح درجة
+              kSplashColor, // اللون الأصلي
+            ],
+            stops: [0.0, 1], // توزيع النعومة
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: SizedBox(
+                height: 280,
+                child: FadeTransition(
+                  opacity: fadeAnimation,
+                  child: SlideTransition(
+                    position: slideAnimation,
+                    child: Image.asset(Assets.kLogo),
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -19,6 +19,11 @@ abstract class AppStyless {
     color: Colors.grey,
     fontFamily: 'Playfair Display',
   );
+
+  static TextStyle profileText = TextStyle(
+    fontSize: 20,
+    color: kSplashColor,
+  );
 }
 
 

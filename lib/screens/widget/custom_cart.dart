@@ -25,66 +25,60 @@ class CustomCard extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
                 boxShadow: [
                   BoxShadow(
-                    blurRadius: 40,
-                    color: Colors.grey.withOpacity(.2),
-                    spreadRadius: 0,
-                    offset: Offset(10, 10),
+                    color: Colors.black.withOpacity(0.05),
+                    blurRadius: 8,
+                    offset: const Offset(0, 4),
                   ),
                 ],
               ),
-              child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(3),
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: paddingHorizontal,
+                  vertical: paddingVertical,
                 ),
-                elevation: 3,
-                color: Colors.white,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: paddingHorizontal,
-                    vertical: paddingVertical,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'iphone',
-                        style: AppStyless.productName.copyWith(
-                          fontSize: textFontSize,
-                        ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'iphone',
+                      style: AppStyless.productName.copyWith(
+                        fontSize: textFontSize,
                       ),
-                      SizedBox(height: screenWidth * 0.0009),
-                      Row(
-                        children: [
-                          Text(
-                            r'$1529',
-                            style: AppStyless.price
-                                .copyWith(fontSize: priceFontSize),
+                    ),
+                    SizedBox(height: screenWidth * 0.0009),
+                    Row(
+                      children: [
+                        Text(
+                          r'$1529',
+                          style: AppStyless.price
+                              .copyWith(fontSize: priceFontSize),
+                        ),
+                        Spacer(flex: 3),
+                        GestureDetector(
+                          onTap: () {},
+                          child: Icon(
+                            color: kSplashColor,
+                            Icons.add,
+                            size: screenWidth * 0.06,
                           ),
-                          Spacer(flex: 3),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Icon(
-                              color: kSplashColor,
-                              Icons.add,
-                              size: screenWidth * 0.06,
-                            ),
+                        ),
+                        Spacer(flex: 1),
+                        GestureDetector(
+                          onTap: () {},
+                          child: Icon(
+                            Icons.favorite,
+                            color: Colors.redAccent,
+                            size: screenWidth * 0.07,
                           ),
-                          Spacer(flex: 1),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Icon(
-                              Icons.favorite,
-                              color: Colors.redAccent,
-                              size: screenWidth * 0.07,
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
               ),
             ),

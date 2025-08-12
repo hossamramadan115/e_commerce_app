@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/constants.dart';
 import 'package:e_commerce_app/screens/cart_screen.dart';
 import 'package:e_commerce_app/screens/home_screen.dart';
+import 'package:e_commerce_app/screens/profile_screen.dart';
 import 'package:e_commerce_app/screens/search_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -18,9 +19,7 @@ class _BottomBarState extends State<BottomBar> {
     HomeScreen(),
     SearchScreen(),
     CartScreen(),
-    Scaffold(
-      body: Center(child: Text('Profile Page', style: TextStyle(fontSize: 22))),
-    ),
+    ProfileScreen(),
   ];
 
   void selectPage(int index) {

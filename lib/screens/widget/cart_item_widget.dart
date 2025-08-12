@@ -24,75 +24,68 @@ class CartItemWidget extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
                 boxShadow: [
                   BoxShadow(
-                    blurRadius: 40,
-                    color: Colors.grey.withOpacity(.2),
-                    spreadRadius: 0,
-                    offset: Offset(10, 10),
+                    color: Colors.black.withOpacity(0.05),
+                    blurRadius: 8,
+                    offset: const Offset(0, 4),
                   ),
                 ],
               ),
-              child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(3),
-                ),
-                elevation: 2,
-                color: Colors.white,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: paddingHorizontal,
-                    vertical: paddingVertical,
+              padding: EdgeInsets.symmetric(
+                horizontal: paddingHorizontal,
+                vertical: paddingVertical,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'iphone',
+                    style: AppStyless.productName.copyWith(
+                      fontSize: textFontSize,
+                    ),
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  SizedBox(height: screenWidth * 0.0009),
+                  Row(
                     children: [
                       Text(
-                        'iphone',
-                        style: AppStyless.productName.copyWith(
-                          fontSize: textFontSize,
+                        r'$1529',
+                        style: AppStyless.price.copyWith(
+                          fontSize: priceFontSize,
                         ),
                       ),
-                      SizedBox(height: screenWidth * 0.0009),
-                      Row(
-                        children: [
-                          Text(
-                            r'$1529',
-                            style: AppStyless.price
-                                .copyWith(fontSize: priceFontSize),
-                          ),
-                          Spacer(flex: 7),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Icon(
-                              Icons.add_circle_outline,
-                              color: Colors.blue,
-                              size: screenWidth * 0.06,
-                            ),
-                          ),
-                          Spacer(flex: 1),
-                          Text(
-                            '0',
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Spacer(flex: 1),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Icon(
-                              Icons.remove_circle_outline,
-                              color: Colors.red,
-                              size: screenWidth * 0.06,
-                            ),
-                          ),
-                        ],
-                      )
+                      Spacer(flex: 7),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Icon(
+                          Icons.add_circle_outline,
+                          color: Colors.blue,
+                          size: screenWidth * 0.06,
+                        ),
+                      ),
+                      Spacer(flex: 1),
+                      Text(
+                        '0',
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      Spacer(flex: 1),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Icon(
+                          Icons.remove_circle_outline,
+                          color: Colors.red,
+                          size: screenWidth * 0.06,
+                        ),
+                      ),
                     ],
-                  ),
-                ),
+                  )
+                ],
               ),
             ),
             Positioned(

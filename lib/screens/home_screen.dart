@@ -42,6 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Text('Our Product', style: AppStyless.styleBold24),
               const SizedBox(height: 25),
               const OurProduct(),
+              const SizedBox(height: 10),
             ],
           ),
         ),
