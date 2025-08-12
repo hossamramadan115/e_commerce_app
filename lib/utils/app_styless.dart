@@ -20,7 +20,7 @@ abstract class AppStyless {
     fontFamily: 'Playfair Display',
   );
 
-  static TextStyle profileText = TextStyle(
+  static TextStyle textFont20 = TextStyle(
     fontSize: 20,
     color: kSplashColor,
   );

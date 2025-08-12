@@ -2,6 +2,7 @@ import 'package:e_commerce_app/constants.dart';
 import 'package:e_commerce_app/screens/bottom_bar.dart';
 import 'package:e_commerce_app/screens/forget_password.dart';
 import 'package:e_commerce_app/screens/login_screen.dart';
+import 'package:e_commerce_app/screens/product_details.dart';
 import 'package:e_commerce_app/screens/sign_up_screen.dart';
 import 'package:e_commerce_app/utils/assets.dart';
 import 'package:flutter/material.dart';
@@ -96,7 +97,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => BottomBar(),
+          builder: (context) => ProductDetails(),
         ),
       );
     });

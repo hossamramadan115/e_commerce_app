@@ -31,13 +31,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
               SizedBox(height: screenHeight * 0.025),
               Text(
                 'Hello Hossam',
-                style: AppStyless.profileText.copyWith(
+                style: AppStyless.textFont20.copyWith(
                   fontSize: screenWidth * 0.06,
                 ),
               ),
               Text(
                 'hossam@gmail.com',
-                style: AppStyless.profileText.copyWith(
+                style: AppStyless.textFont20.copyWith(
                   fontSize: screenWidth * 0.04,
                 ),
               ),
