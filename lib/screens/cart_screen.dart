@@ -1,5 +1,7 @@
 import 'package:e_commerce_app/constants.dart';
 import 'package:e_commerce_app/screens/widget/cart_item_widget.dart';
+import 'package:e_commerce_app/screens/widget/custom_button.dart';
+import 'package:e_commerce_app/utils/app_styless.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -13,6 +15,8 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.sizeOf(context).width;
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -29,7 +33,6 @@ class _CartScreenState extends State<CartScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Column(
             children: [
-              // القائمة فوق
               Expanded(
                 child: ListView.builder(
                   itemCount: 2,
@@ -55,32 +58,18 @@ class _CartScreenState extends State<CartScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
+                    Text(
                       'Total: \$250',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Playfair Display',
-                      ),
+                      style: AppStyless.priceFont18,
                     ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
+                    SizedBox(width: width * .25),
+                    Expanded(
+                      child: CustomButton(
+                        text: 'Check Out',
                         backgroundColor: Colors.blue,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        elevation: 3,
+                        onTap: () {},
                       ),
-                      child: Text(
-                        'Check Out',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: kPrimaryColor,
-                          fontFamily: 'Playfair Display',
-                        ),
-                      ),
-                    ),
+                    )
                   ],
                 ),
               ),

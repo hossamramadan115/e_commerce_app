@@ -1,8 +1,12 @@
-import 'package:e_commerce_app/constants.dart';
+import 'package:e_commerce_app/screens/add_product.dart';
+import 'package:e_commerce_app/screens/widget/custom_button.dart';
 import 'package:e_commerce_app/screens/widget/custom_list_tile.dart';
+import 'package:e_commerce_app/utils/app_router.dart';
 import 'package:e_commerce_app/utils/app_styless.dart';
 import 'package:e_commerce_app/utils/assets.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -55,33 +59,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
               CustomListTile(
                 icon: Icons.add,
                 title: 'Add product',
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AddProduct(), // اسم الصفحة التانية
+                    ),
+                  );
+                },
               ),
               SizedBox(height: screenHeight * 0.03),
               SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
+                  width: double.infinity,
+                  child: CustomButton(
+                    text: 'Sign Out',
                     backgroundColor: Colors.red,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    elevation: 3,
-                    padding: EdgeInsets.symmetric(
-                      vertical: screenHeight * 0.009,
-                    ),
-                  ),
-                  child: Text(
-                    'Sign Out',
-                    style: TextStyle(
-                      fontSize: screenWidth * 0.049,
-                      color: kPrimaryColor,
-                      fontFamily: 'Playfair Display',
-                    ),
-                  ),
-                ),
-              ),
+                    onTap: () {
+                      FirebaseAuth.instance.signOut();
+                      context.go(AppRouter.kLoginScreen);
+                      // GoRouter.of(context).go(AppRouter.kLoginScreen);
+                    },
+                  )),
             ],
           ),
         ),

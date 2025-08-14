@@ -11,8 +11,10 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.sizeOf(context).width;
+
     return SizedBox(
-      height: 55,
+      height: 50,
       width: double.infinity,
       child: ElevatedButton(
         onPressed: onTap,
@@ -25,7 +27,7 @@ class CustomButton extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: TextStyle(fontSize: 20, color: kPrimaryColor),
+          style: TextStyle(fontSize: width * .05, color: kPrimaryColor),
         ),
       ),
     );

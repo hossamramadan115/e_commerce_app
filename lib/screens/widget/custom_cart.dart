@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/constants.dart';
+import 'package:e_commerce_app/screens/product_details.dart';
 import 'package:e_commerce_app/utils/app_styless.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,14 @@ class CustomCard extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 1,
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ProductDetails(), // اسم الصفحة التانية
+            ),
+          );
+        },
         child: Stack(
           clipBehavior: Clip.none,
           children: [

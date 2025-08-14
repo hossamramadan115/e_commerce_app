@@ -6,8 +6,8 @@ abstract class AppStyless {
   static TextStyle styleBold24 = TextStyle(
     color: kSplashColor,
     fontSize: 24,
-    // fontWeight: FontWeight.bold,
-    fontFamily: 'Poppins',
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Playfair Display',
   );
 
   static TextStyle price = TextStyle(
@@ -23,6 +23,11 @@ abstract class AppStyless {
   static TextStyle textFont20 = TextStyle(
     fontSize: 20,
     color: kSplashColor,
+  );
+  static TextStyle priceFont18 = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Playfair Display',
   );
 }
 

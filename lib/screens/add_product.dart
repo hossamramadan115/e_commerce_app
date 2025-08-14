@@ -1,50 +1,42 @@
-import 'package:e_commerce_app/constants.dart';
-import 'package:e_commerce_app/helper/show_snack_bar.dart';
-import 'package:e_commerce_app/screens/widget/custom_button.dart';
-import 'package:e_commerce_app/screens/widget/custom_text_button.dart';
-import 'package:e_commerce_app/screens/widget/custom_text_form_field.dart';
-import 'package:e_commerce_app/utils/app_router.dart';
-import 'package:e_commerce_app/utils/app_styless.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'dart:io';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+import 'package:e_commerce_app/constants.dart';
+import 'package:e_commerce_app/screens/widget/custom_button.dart';
+import 'package:e_commerce_app/screens/widget/custom_text_form_field.dart';
+import 'package:e_commerce_app/utils/app_styless.dart';
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+
+class AddProduct extends StatefulWidget {
+  const AddProduct({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<AddProduct> createState() => _AddProductState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
-  final name = TextEditingController();
-  final email = TextEditingController();
-  final password = TextEditingController();
+class _AddProductState extends State<AddProduct> {
+  File? pickedImage;
+  void uploadImage() async {
+    var image = await ImagePicker().pickImage(source: ImageSource.gallery);
+    var selected = File(image!.path);
 
-  void signUp() async {
-    try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: email.text, password: password.text);
-           GoRouter.of(context).push(AppRouter.kBottombar);
-    } on FirebaseException catch (e) {
-      showSnackBar(context, e.toString());
+    if (selected != null) {
+      setState(() {
+        pickedImage = selected;
+      });
     }
   }
 
-  @override
-  void dispose() {
-    name.dispose();
-    email.dispose();
-    password.dispose();
-    super.dispose();
-  }
-
   final formKey = GlobalKey<FormState>();
+  String category = 'iphone';
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: kPrimaryColor,
+        ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: SingleChildScrollView(
@@ -62,8 +54,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: Column(
                     children: [
                       CustomTextFormField(
-                        controller: name,
-                        label: Text('Name'),
+                        label: Text('Title'),
                         validator: (data) {
                           if (data == null || data.isEmpty) {
                             return 'field is required';
@@ -73,64 +64,72 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       SizedBox(height: 16),
                       CustomTextFormField(
-                        controller: email,
-                        label: Text('Email'),
+                        label: Text('Description'),
                         validator: (data) {
-                          if (data == null || data.isEmpty) {
+                          if (data == null || data.isEmpty || data.length < 7) {
                             return 'field is required';
-                          } else if (!data.contains('@') || data.length < 7) {
-                            return 'please enter a vaild email';
                           }
                           return null;
                         },
                       ),
                       SizedBox(height: 16),
                       CustomTextFormField(
-                        controller: password,
-                        label: Text('Password'),
+                        label: Text('Price'),
                         validator: (data) {
                           if (data == null || data.isEmpty) {
                             return 'field is required';
-                          } else if (data.length < 7) {
-                            return 'must be at least 7 characters';
                           }
                           return null;
                         },
                         obscureText: true,
                       ),
+                      DropdownButtonHideUnderline(
+                        child: DropdownButton<String>(
+                          hint: const Text('Select a category'),
+                          onChanged: (value) {
+                            setState(() {
+                              category = value!;
+                            });
+                          },
+                          items: const [
+                            DropdownMenuItem(
+                              value: 'iphone',
+                              child: Text('iPhone'),
+                            ),
+                            DropdownMenuItem(
+                              value: 'laptop',
+                              child: Text('Laptop'),
+                            ),
+                            DropdownMenuItem(
+                              value: 'watch',
+                              child: Text('Watch'),
+                            ),
+                          ],
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          uploadImage();
+                        },
+                        child: pickedImage == null
+                            ? Text(
+                                'chose image',
+                                style: AppStyless.priceFont18,
+                              )
+                            : Image.file(pickedImage!),
+                      ),
                       SizedBox(height: 20),
                       CustomButton(
-                        text: 'Sign Up',
-                        backgroundColor: kSplashColor,
+                        text: 'Upload',
+                        backgroundColor: Colors.blue,
                         onTap: () {
                           formKey.currentState!.save();
                           if (formKey.currentState!.validate()) {}
-                          signUp();
                         },
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Do you have account? ',
-                      style: TextStyle(
-                        color: kSplashColor,
-                        fontSize: 16,
-                      ),
-                    ),
-                    CustomTextButton(
-                      text: 'Login',
-                      onPressed: () {
-                        GoRouter.of(context).push(AppRouter.kLoginScreen);
-                      },
-                    ),
-                  ],
-                ),
-                SizedBox(height: 100),
               ],
             ),
           ),
