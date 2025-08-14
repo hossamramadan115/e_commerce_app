@@ -1,12 +1,10 @@
 import 'package:e_commerce_app/screens/add_product.dart';
 import 'package:e_commerce_app/screens/widget/custom_button.dart';
 import 'package:e_commerce_app/screens/widget/custom_list_tile.dart';
-import 'package:e_commerce_app/utils/app_router.dart';
 import 'package:e_commerce_app/utils/app_styless.dart';
 import 'package:e_commerce_app/utils/assets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -76,7 +74,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     backgroundColor: Colors.red,
                     onTap: () {
                       FirebaseAuth.instance.signOut();
-                      context.go(AppRouter.kLoginScreen);
+                      // context.go(AppRouter.kLoginScreen);
                       // GoRouter.of(context).go(AppRouter.kLoginScreen);
                     },
                   )),

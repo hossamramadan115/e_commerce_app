@@ -24,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: email.text, password: password.text);
-      GoRouter.of(context).push(AppRouter.kBottombar);
+      // GoRouter.of(context).push(AppRouter.kBottombar);
     } on FirebaseException catch (e) {
       showSnackBar(context, e.toString());
       // print(e.toString());
@@ -107,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     CustomTextButton(
                       text: 'Sign Up',
                       onPressed: () {
-                        GoRouter.of(context).pop(AppRouter.kSignUpScreen);
+                        GoRouter.of(context).push(AppRouter.kSignUpScreen);
                       },
                     ),
                   ],
